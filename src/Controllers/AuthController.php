@@ -40,8 +40,7 @@ class AuthController extends Controller
     public function getAuthentication(Request $request, LibraryCallContract $libCall)
     {
         try {
-            $referrerId = $this->createReferrerId();
-            echo $referrerId;
+            $this->createReferrerId();
             $sessionCheck = $this->sessionCheck();
             if($sessionCheck) {
                 $this->sessionCreation();

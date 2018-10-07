@@ -1,11 +1,8 @@
 {
 	"terraDataTable": {
-		"groupFunction": "Group function"
+		"initialLoading": "Click on search to display {{ dataType }}"
 	},
 	"terraMultiSelectBox": {
-		"selectAll": "All"
-	},
-	"terraMultiCheckBox": {
 		"selectAll": "All"
 	},
 	"terraFileBrowser": {
@@ -31,8 +28,7 @@
 		"fileName": "File name",
 		"lastChange": "Last change",
 		"loadingFiles": "Loading files",
-		"noFiles": "No files",
-		"downloadFile": "Download file"
+		"noFiles": "No files"
 	},
 	"terraFileInput": {
 		"choose": "Select",
@@ -53,17 +49,6 @@
 		"of": "of"
 	},
 	"terraNoteEditor": {
-		"insertText": "Insert text."
-	},
-	"terraTextInput": {
-		"invalidIban": "IBAN is not valid."
-	},
-	"terraNodeTree":{
-		"search": "Search"
-	},
-	"terraCategoryPicker": {
-		"select": "Select",
-		"category": "Category",
-		"reset": "Reset"
+		"insertText": "Insert text.."
 	}
 }
