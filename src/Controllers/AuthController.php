@@ -9,6 +9,7 @@ use Plenty\Modules\Market\Settings\Contracts\SettingsRepositoryContract;
 use Plenty\Modules\System\Models\WebstoreConfiguration;
 use Plenty\Modules\Helper\Services\WebstoreHelper;
 use Plenty\Modules\Plugin\Libs\Contracts\LibraryCallContract;
+use Plenty\Modules\Order\Referrer\Contracts\OrderReferrerRepositoryContract;
 
 /**
  * Class AuthController
@@ -39,6 +40,7 @@ class AuthController extends Controller
     public function getAuthentication(Request $request, LibraryCallContract $libCall)
     {
         try {
+            $this->createReferrerId();
             $sessionCheck = $this->sessionCheck();
             if($sessionCheck) {
                 $this->sessionCreation();
@@ -206,5 +208,37 @@ class AuthController extends Controller
         {
             return $tokenDetail;
         }
+    }
+
+
+    public function createReferrerId()
+    {
+        $orderReferrerRepo = pluginApp(OrderReferrerRepositoryContract::class);
+        $orderReferrerLists = $orderReferrerRepo->getList(['name']);
+
+        $pandaBlackReferrerID = [];
+
+        foreach($orderReferrerLists as $key => $orderReferrerList)
+        {
+            if(trim($orderReferrerList->name) === 'PandaBlackTest') {
+                array_push($pandaBlackReferrerID, $orderReferrerList);
+            }
+        }
+
+        if(empty(array_filter($pandaBlackReferrerID))) {
+
+            $orderReferrer = $orderReferrerRepo->create([
+                'isEditable'    => true,
+                'backendName' => 'PandaBlackTest',
+                'name'        => 'PandaBlackTest',
+                'origin'      => 'plenty',
+                'isFilterable' => true
+            ])->toArray();
+            $settingsRepository = pluginApp(SettingsRepositoryContract::class);
+            $settingsRepository->create('PandaBlackTest', 'property', $orderReferrer);
+
+            return $orderReferrer;
+        }
+
     }
 }

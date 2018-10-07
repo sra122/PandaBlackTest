@@ -1,0 +1,18 @@
+{
+  "defaultEntryPoint" : "index.html",
+  "namespace"         : "HelloWorld",
+  "menuEntries"       : [
+    {
+      "label": "Authentication",
+      "menu": "system/markets/PandaBlackTest",
+      "urlKey": "itools",
+      "entryPoint": "index.html?action=itools"
+    },
+    {
+      "label": "Category-linking",
+      "menu": "system/markets/PandaBlackTest",
+      "urlKey": "stats-view",
+      "entryPoint": "index.html?action=stats-view"
+    }
+  ]
+}
