@@ -2,7 +2,7 @@
 
 namespace PandaBlackTest\Crons;
 
-use PandaBlack\Controllers\ContentController;
+use PandaBlackTest\Controllers\ContentController;
 use Plenty\Modules\Cron\Contracts\CronHandler as Cron;
 
 class ItemExportCron extends Cron
