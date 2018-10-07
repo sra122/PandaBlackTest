@@ -2,11 +2,11 @@
 
 namespace PandaBlackTest\Providers;
 
+use PandaBlackTest\Crons\ItemExportCron;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Templates\Twig;
 use Plenty\Modules\Cron\Services\CronContainer;
-
 
 class PandaBlackTestServiceProvider extends ServiceProvider
 {
@@ -16,7 +16,6 @@ class PandaBlackTestServiceProvider extends ServiceProvider
     public function register()
     {
         $this->getApplication()->register(PandaBlackTestRouteServiceProvider::class);
-        $this->getApplication()->bind(CategoryRepositoryContract::class, CategoryRepository::class);
     }
 
     /**
