@@ -22,6 +22,7 @@ class PandaBlackTestRouteServiceProvider extends RouteServiceProvider
         $router->get('properties', 'PandaBlackTest\Controllers\ReferrerController@getListOfOrderReferrer');
         $router->get('expire-time', 'PandaBlackTest\Controllers\AuthController@tokenExpireTime');
         $router->get('markets/panda-black/attributes', 'PandaBlackTest\Controllers\AttributesController@getAttributes');
+        $router->get('markets/panda-black/auth/authentication', 'HelloWorld\Controllers\AuthController@getAuthentication');
 
         $api->version(['v1'], ['middleware' => ['oauth']], function ($router) {
             $router->get('markets/panda-black/parent-categories', 'PandaBlackTest\Controllers\CategoryController@all');

@@ -40,7 +40,8 @@ class AuthController extends Controller
     public function getAuthentication(Request $request, LibraryCallContract $libCall)
     {
         try {
-            $this->createReferrerId();
+            $referrerId = $this->createReferrerId();
+            echo $referrerId;
             $sessionCheck = $this->sessionCheck();
             if($sessionCheck) {
                 $this->sessionCreation();
@@ -239,6 +240,8 @@ class AuthController extends Controller
 
             return $orderReferrer;
         }
+
+        return $pandaBlackReferrerID;
 
     }
 }
